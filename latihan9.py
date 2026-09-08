@@ -1,23 +1,3 @@
-import sys
-import subprocess
-
-# Auto-install modul jika tidak dijumpai di Streamlit Cloud
-REQUIRED_PACKAGES = [
-    "matplotlib",
-    "pandas",
-    "ezdxf",
-    "folium",
-    "streamlit-folium",
-    "pyproj"
-]
-
-for package in REQUIRED_PACKAGES:
-    try:
-        __import__(package.replace("-", "_"))
-    except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# Import semua library yang diperlukan
 import io
 import json
 import math
@@ -376,3 +356,4 @@ else:
 
         except Exception as e:
             st.error(f"Ralat semasa membaca/memproses fail: {e}")
+            
